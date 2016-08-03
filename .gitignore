@@ -1,0 +1,6 @@
+.idea/*
+web/
+build/
+.gradle/
+classes/
+out/
