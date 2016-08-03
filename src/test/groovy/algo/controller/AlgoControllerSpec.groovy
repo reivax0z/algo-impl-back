@@ -1,7 +1,7 @@
 package algo.controller
 
 import algo.client.sort.ClassicSort
-import algo.client.sort.Sorts
+import algo.client.Sorts
 import algo.model.Report
 import algo.service.impl.Service
 import org.springframework.http.HttpStatus

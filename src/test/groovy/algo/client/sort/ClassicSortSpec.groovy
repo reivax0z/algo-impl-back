@@ -17,4 +17,9 @@ class ClassicSortSpec extends Specification {
         then:
         result == [1, 2, 3, 5, 6, 8, 9]
     }
+
+    def "it has a name"() {
+        expect:
+        sort.getName() == 'Classic Sort'
+    }
 }

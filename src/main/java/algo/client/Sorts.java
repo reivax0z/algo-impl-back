@@ -1,7 +1,9 @@
-package algo.client.sort;
+package algo.client;
 
 import algo.client.IClient;
 import algo.client.IClientList;
+import algo.client.sort.BubbleSort;
+import algo.client.sort.ClassicSort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
