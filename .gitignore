@@ -4,3 +4,4 @@ build/
 .gradle/
 classes/
 out/
+api-tests/node_modules
