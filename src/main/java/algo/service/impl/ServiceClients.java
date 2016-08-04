@@ -1,36 +1,44 @@
 package algo.service.impl;
 
 import algo.client.IClient;
+import algo.client.IClientList;
 import algo.model.Report;
 import algo.model.ReportItem;
-import algo.service.IService;
+import algo.service.IServiceClient;
+import algo.service.IServiceClients;
 import algo.util.Generator;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
-
 @org.springframework.stereotype.Service
-public class Service implements IService {
+public class ServiceClients implements IServiceClients {
 
     @Autowired
     private Generator generator;
+    @Autowired
+    private IServiceClient serviceClient;
 
     @Override
     public Report serve(Integer iteration,
-                        List<IClient> clients,
+                        IClientList clients,
                         Integer size) {
+
         Report report = new Report();
+
         report.setNbIterations(iteration);
         report.setSampleSize(size);
+        report.setType(clients.getType());
 
-        for (IClient client: clients) {
+        for (IClient client: clients.getClients()) {
 
             ReportItem reportItem = new ReportItem();
             reportItem.setAlgoName(client.getName());
 
             long sum = 0;
             for (int i = 0; i < iteration; i++) {
-                long timeSpent = callAndComputeTimeSpent(client, size);
+                long timeSpent = serviceClient.serve(
+                        client,
+                        generator.generateInput(size));
+
                 reportItem.getTimePerIteration().put(i, timeSpent);
                 sum += timeSpent;
             }
@@ -40,18 +48,5 @@ public class Service implements IService {
         }
 
         return report;
-    }
-
-    private long callAndComputeTimeSpent(IClient client, Integer size) {
-
-        Integer[] input = generator.generateInput(size);
-
-        long before = System.currentTimeMillis();
-
-        client.compute(input);
-
-        long after = System.currentTimeMillis();
-
-        return after - before;
     }
 }

@@ -1,15 +1,14 @@
 package algo.controller
 
-import algo.client.sort.ClassicSort
 import algo.client.Sorts
 import algo.model.Report
-import algo.service.impl.Service
+import algo.service.impl.ServiceClients
 import org.springframework.http.HttpStatus
 import spock.lang.Specification
 
 class AlgoControllerSpec extends Specification {
 
-    def service = Mock(Service)
+    def service = Mock(ServiceClients)
     def sorts = Mock(Sorts)
 
     def controller = new AlgoController(
@@ -20,14 +19,12 @@ class AlgoControllerSpec extends Specification {
     def "the sort method"() {
         given:
         def expectedBody = new Report()
-        def clients = [new ClassicSort()]
 
         when:
         def response = controller.sort(10, 100)
 
         then:
-        1 * sorts.getClients() >> clients
-        1 * service.serve(10, clients, 100) >> expectedBody
+        1 * service.serve(10, sorts, 100) >> expectedBody
 
         and:
         response != null

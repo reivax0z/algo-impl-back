@@ -1,6 +1,7 @@
 package algo.model;
 
 import io.swagger.annotations.ApiModel;
+import org.springframework.data.annotation.Id;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,10 @@ import java.util.List;
 @ApiModel
 public class Report {
 
+    @Id
+    private String id;
+
+    private ClientType type;
     private int nbIterations;
     private int sampleSize;
     private List<ReportItem> reportItems = new ArrayList<>();
@@ -34,5 +39,21 @@ public class Report {
 
     public void setSampleSize(int sampleSize) {
         this.sampleSize = sampleSize;
+    }
+
+    public ClientType getType() {
+        return type;
+    }
+
+    public void setType(ClientType type) {
+        this.type = type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

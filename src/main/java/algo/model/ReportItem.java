@@ -1,6 +1,7 @@
 package algo.model;
 
 import io.swagger.annotations.ApiModel;
+import org.springframework.data.annotation.Id;
 
 import java.util.HashMap;
 import java.util.Map;

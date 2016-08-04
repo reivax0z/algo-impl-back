@@ -3,6 +3,7 @@ package algo.client
 import algo.client.Sorts
 import algo.client.sort.BubbleSort
 import algo.client.sort.ClassicSort
+import algo.model.ClientType
 import spock.lang.Specification
 
 class SortsSpec extends Specification {
@@ -15,7 +16,7 @@ class SortsSpec extends Specification {
             classicSort: classicSort
     )
 
-    def "it returns the sorts"() {
+    def "it returns the sort list"() {
         given:
 
         when:
@@ -24,5 +25,15 @@ class SortsSpec extends Specification {
         then:
         response.size() == 2
         response.containsAll([bubbleSort, classicSort])
+    }
+
+    def "it returns the type of the algo"() {
+        given:
+
+        when:
+        def response = sorts.getType()
+
+        then:
+        response == ClientType.SORT
     }
 }

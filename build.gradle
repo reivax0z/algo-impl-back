@@ -23,7 +23,7 @@ targetCompatibility = 1.8
 ext {
     springVersion = '4.2.2.RELEASE'
     jsonJacksonVersion = '2.6.3'
-    swaggerVersion = '2.2.2'
+    swaggerVersion = '2.4.0'
 }
 
 repositories {
@@ -35,8 +35,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web") {
         exclude module: "spring-boot-starter-tomcat"
     }
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
     compile("org.springframework.boot:spring-boot-starter-jetty")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
+    //compile("org.springframework.boot:spring-boot-starter-actuator")
 
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:jsonJacksonVersion
     compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:jsonJacksonVersion
