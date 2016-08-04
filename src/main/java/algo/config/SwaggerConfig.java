@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -32,9 +33,17 @@ public class SwaggerConfig {
                         "capabilities to save and retrieve them.",
                 "0.0.1",
                 "API TOS",
-                "xavier.w.caron@gmail.com",
+                contact(),
                 "The MIT License (MIT)",
                 "https://opensource.org/licenses/MIT"
+        );
+    }
+
+    private Contact contact() {
+        return new Contact(
+                "Xavier CARON",
+                "http://au.linkedin.com/in/xavierwilfriddimitrycaron",
+                "xavier.w.caron@gmail.com"
         );
     }
 }
