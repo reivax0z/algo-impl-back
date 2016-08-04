@@ -28,17 +28,17 @@ $ brew install mongodb
 
 1) Have MongoDB running in the background:
 
-    ```sh
-    $ mongod --config /usr/local/etc/mongod.conf
-    ```
+```sh
+$ mongod --config /usr/local/etc/mongod.conf
+```
 
-    Note that you can access the logs by typing: `$ tail -f /usr/local/var/log/mongodb/mongo.log`
+Note that you can access the logs by typing: `$ tail -f /usr/local/var/log/mongodb/mongo.log`
 
 2) Then just run the following:
 
-    ```sh
-    $ gradle bootRun
-    ```
+ ```sh
+$ gradle bootRun
+```
 
 3) Access the app:
 
