@@ -6,11 +6,18 @@ var app = 'algo-impl';
 
 var URL = 'http://'+ server +':'+ port + '/' + app;
 
-var executeRequest = function(method, url) {
+var executeRequest = function(method, url, body) {
     var defer = protractor.promise.defer();
 
+    var options = {
+        uri: URL + url,
+        method: method,
+        body: body,
+        json: true
+    };
+
     // method can be ‘GET’, ‘POST’ or ‘PUT’
-    request({uri: URL + url, method: method, json: true}, function(error, response, body) {
+    request(options, function(error, response, body) {
 
         if (error || response.statusCode >= 400) {
             defer.reject({

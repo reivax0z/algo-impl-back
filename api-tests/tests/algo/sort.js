@@ -1,20 +1,21 @@
-var expect = require('expect.js');
+var assert = require('assert');
 var util = require('../util.js');
 
-describe('/algo/sort/{iteration}/{size}',function() {
-    it('should get back the report',function() {
+describe('/algo/sort/{iteration}/{size}', function() {
 
-        var nbIterations = 10;
-        var sampleSize = 100;
+    var nbIterations = 10;
+    var sampleSize = 100;
 
-        var endpoint = '/algo/sort/' + nbIterations + '/' + sampleSize;
+    var endpoint = '/algo/sort/' + nbIterations + '/' + sampleSize;
+
+    it('should get back the report', function() {
 
         util.executeRequest('GET', endpoint)
-            .then(function success(result) {
+            .then(function(result) {
                 // check the response data
-                expect(result.nbIterations).to.be(nbIterations);
-                expect(result.sampleSize).to.be(sampleSize);
-                expect(result.reportItems.length).to.be(2);
+                assert.equal(result.nbIterations, nbIterations);
+                assert.equal(result.sampleSize, sampleSize);
+                assert.equal(result.reportItems.length, 2);
             });
     });
 });

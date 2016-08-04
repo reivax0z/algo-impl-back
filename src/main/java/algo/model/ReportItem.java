@@ -1,7 +1,6 @@
 package algo.model;
 
 import io.swagger.annotations.ApiModel;
-import org.springframework.data.annotation.Id;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +10,7 @@ public class ReportItem {
 
     private String algoName;
     private long avgTime;
+
     private Map<Integer, Long> timePerIteration = new HashMap<>();
 
     public String getAlgoName() {
