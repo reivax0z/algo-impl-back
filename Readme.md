@@ -59,7 +59,7 @@ Just run the following:
 $ gradle test
 ```
 
-Note that the tests cover more than 70% of lines of code.
+Note that the tests cover almost 80% of lines of code overall.
 
 ### Run the integration tests
 

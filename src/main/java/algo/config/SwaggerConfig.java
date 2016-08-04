@@ -27,12 +27,14 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Algorithm Implementations REST API",
-                "This is a description of the exposed services contained in the API.",
+                "This API offers a way to visualise different Algorithm implementation performances. <br>" +
+                        "It provides the logic to request performance reports on the fly, as well as the " +
+                        "capabilities to save and retrieve them.",
                 "0.0.1",
                 "API TOS",
                 "xavier.w.caron@gmail.com",
-                "API License",
-                "API License URL"
+                "The MIT License (MIT)",
+                "https://opensource.org/licenses/MIT"
         );
     }
 }
