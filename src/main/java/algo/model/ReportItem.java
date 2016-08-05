@@ -3,7 +3,6 @@ package algo.model;
 import io.swagger.annotations.ApiModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @ApiModel
 public class ReportItem {
@@ -11,7 +10,7 @@ public class ReportItem {
     private String algoName;
     private long avgTime;
 
-    private List<Item> timePerIteration = new ArrayList<>();
+    private ArrayList<Item> timePerIteration = new ArrayList<>();
 
     public String getAlgoName() {
         return algoName;
@@ -29,11 +28,11 @@ public class ReportItem {
         this.avgTime = avgTime;
     }
 
-    public List<Item> getTimePerIteration() {
+    public ArrayList<Item> getTimePerIteration() {
         return timePerIteration;
     }
 
-    public void setTimePerIteration(List<Item> timePerIteration) {
+    public void setTimePerIteration(ArrayList<Item> timePerIteration) {
         this.timePerIteration = timePerIteration;
     }
 }

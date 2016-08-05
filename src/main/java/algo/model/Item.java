@@ -1,5 +1,8 @@
 package algo.model;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel
 public class Item {
     private Integer iteration;
     private Long timeSpent;
