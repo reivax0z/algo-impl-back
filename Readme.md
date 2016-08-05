@@ -42,7 +42,7 @@ $ gradle bootRun
 
 3) Access the app:
 
-* The app will then be running on:
+* The app will then be accessible at:
 
     _http://localhost:8080/algo-impl_
 

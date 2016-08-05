@@ -2,6 +2,7 @@ package algo.service.impl;
 
 import algo.client.IClient;
 import algo.client.IClientList;
+import algo.model.Item;
 import algo.model.Report;
 import algo.model.ReportItem;
 import algo.service.IServiceClient;
@@ -39,7 +40,11 @@ public class ServiceClients implements IServiceClients {
                         client,
                         generator.generateInput(size));
 
-                reportItem.getTimePerIteration().put(i, timeSpent);
+                Item item = new Item();
+                item.setIteration(i);
+                item.setTimeSpent(timeSpent);
+
+                reportItem.getTimePerIteration().add(item);
                 sum += timeSpent;
             }
 

@@ -13,10 +13,16 @@ describe('/report/{id}', function() {
             {
                 algoName: "Classic Sort",
                 avgTime: 2000,
-                timePerIteration: {
-                    "0": 1000,
-                    "1": 3000
-                }
+                timePerIteration: [
+                    {
+                        iteration: 0,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 1,
+                        timeSpent: 2
+                    }
+                ]
             }
         ]
     };
