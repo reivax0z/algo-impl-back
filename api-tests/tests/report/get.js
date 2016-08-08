@@ -22,6 +22,16 @@ describe('/report/{id}', function() {
                         iteration: 1,
                         timeSpent: 2
                     }
+                ],
+                timePerSample: [
+                    {
+                        iteration: 50,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 100,
+                        timeSpent: 2
+                    }
                 ]
             }
         ]
@@ -46,6 +56,7 @@ describe('/report/{id}', function() {
                         assert.equal(result.reportItems[0].avgTime, 2000);
 
                         expect(result.reportItems[0].timePerIteration).not.to.be.null;
+                        expect(result.reportItems[0].timePerSample).not.to.be.null;
                     });
             });
     });

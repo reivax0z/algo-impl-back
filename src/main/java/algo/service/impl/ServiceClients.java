@@ -2,21 +2,21 @@ package algo.service.impl;
 
 import algo.client.IClient;
 import algo.client.IClientList;
+import algo.helper.HelperImpl;
 import algo.model.Item;
 import algo.model.Report;
 import algo.model.ReportItem;
 import algo.service.IServiceClient;
 import algo.service.IServiceClients;
-import algo.util.Generator;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @org.springframework.stereotype.Service
 public class ServiceClients implements IServiceClients {
 
     @Autowired
-    private Generator generator;
-    @Autowired
     private IServiceClient serviceClient;
+    @Autowired
+    private HelperImpl helper;
 
     @Override
     public Report serve(Integer iteration,
@@ -35,17 +35,24 @@ public class ServiceClients implements IServiceClients {
             reportItem.setAlgoName(client.getName());
 
             long sum = 0;
+            int sample = size / iteration;
+
             for (int i = 0; i < iteration; i++) {
-                long timeSpent = serviceClient.serve(
+                Item timePerIterationItem = helper.help(
+                        serviceClient,
                         client,
-                        generator.generateInput(size));
+                        size,
+                        i);
+                reportItem.getTimePerIteration().add(timePerIterationItem);
+                sum += timePerIterationItem.getTimeSpent();
 
-                Item item = new Item();
-                item.setIteration(i);
-                item.setTimeSpent(timeSpent);
-
-                reportItem.getTimePerIteration().add(item);
-                sum += timeSpent;
+                Item timePerSampleItem = helper.help(
+                        serviceClient,
+                        client,
+                        sample,
+                        sample);
+                reportItem.getTimePerSample().add(timePerSampleItem);
+                sample += (size / iteration);
             }
 
             reportItem.setAvgTime(sum / iteration);

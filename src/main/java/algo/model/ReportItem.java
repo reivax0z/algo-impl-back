@@ -11,6 +11,7 @@ public class ReportItem {
     private long avgTime;
 
     private ArrayList<Item> timePerIteration = new ArrayList<>();
+    private ArrayList<Item> timePerSample = new ArrayList<>();
 
     public String getAlgoName() {
         return algoName;
@@ -34,5 +35,13 @@ public class ReportItem {
 
     public void setTimePerIteration(ArrayList<Item> timePerIteration) {
         this.timePerIteration = timePerIteration;
+    }
+
+    public ArrayList<Item> getTimePerSample() {
+        return timePerSample;
+    }
+
+    public void setTimePerSample(ArrayList<Item> timePerSample) {
+        this.timePerSample = timePerSample;
     }
 }

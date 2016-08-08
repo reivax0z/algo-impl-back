@@ -54,6 +54,48 @@ describe('/report/save', function() {
                         iteration: 9,
                         timeSpent: 3
                     }
+                ],
+                timePerSample: [
+                    {
+                        iteration: 10,
+                        timeSpent: 0
+                    },
+                    {
+                        iteration: 20,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 30,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 40,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 50,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 60,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 70,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 80,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 90,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 100,
+                        timeSpent: 3
+                    }
                 ]
             },
             {
@@ -100,7 +142,50 @@ describe('/report/save', function() {
                         iteration: 9,
                         timeSpent: 14
                     }
+                ],
+                timePerSample: [
+                    {
+                        iteration: 10,
+                        timeSpent: 0
+                    },
+                    {
+                        iteration: 20,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 30,
+                        timeSpent: 1
+                    },
+                    {
+                        iteration: 40,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 50,
+                        timeSpent: 2
+                    },
+                    {
+                        iteration: 60,
+                        timeSpent: 4
+                    },
+                    {
+                        iteration: 70,
+                        timeSpent: 6
+                    },
+                    {
+                        iteration: 80,
+                        timeSpent: 8
+                    },
+                    {
+                        iteration: 90,
+                        timeSpent: 10
+                    },
+                    {
+                        iteration: 100,
+                        timeSpent: 14
+                    }
                 ]
+
             }
         ]
     };
