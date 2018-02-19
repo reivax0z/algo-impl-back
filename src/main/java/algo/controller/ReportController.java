@@ -31,7 +31,7 @@ public class ReportController {
     @RequestMapping(value="/{type}/{size}", method= RequestMethod.GET)
     public ResponseEntity<List<Report>> getByTypeAndSize(
             @ApiParam(name="type", value="The Type of the algorithm to be queried", required=true)
-            @PathVariable ClientType type,
+            @PathVariable String type,
 
             @ApiParam(name="size", value="The Size of the sample to be queried", required=true)
             @PathVariable Integer size) {

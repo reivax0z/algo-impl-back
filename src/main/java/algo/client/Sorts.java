@@ -18,8 +18,8 @@ public class Sorts implements IClientList {
     private BubbleSort bubbleSort;
 
     @Override
-    public ClientType getType() {
-        return ClientType.SORT;
+    public String getType() {
+        return "SORT";
     }
 
     @Override

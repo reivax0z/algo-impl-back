@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IClientList {
 
-    ClientType getType();
+    String getType();
     List<IClient> getClients();
 }

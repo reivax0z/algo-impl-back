@@ -1,10 +1,13 @@
 package algo.model;
 
 import io.swagger.annotations.ApiModel;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBDocument;
 
 import java.util.ArrayList;
 
 @ApiModel
+@DynamoDBDocument
 public class ReportItem {
 
     private String algoName;
@@ -13,6 +16,7 @@ public class ReportItem {
     private ArrayList<Item> timePerIteration = new ArrayList<>();
     private ArrayList<Item> timePerSample = new ArrayList<>();
 
+    @DynamoDBAttribute(attributeName = "AlgoName")
     public String getAlgoName() {
         return algoName;
     }
@@ -21,6 +25,7 @@ public class ReportItem {
         this.algoName = algoName;
     }
 
+    @DynamoDBAttribute(attributeName = "AvgTime")
     public long getAvgTime() {
         return avgTime;
     }
@@ -29,6 +34,7 @@ public class ReportItem {
         this.avgTime = avgTime;
     }
 
+    @DynamoDBAttribute(attributeName = "TimePerIteration")
     public ArrayList<Item> getTimePerIteration() {
         return timePerIteration;
     }
@@ -37,6 +43,7 @@ public class ReportItem {
         this.timePerIteration = timePerIteration;
     }
 
+    @DynamoDBAttribute(attributeName = "TimePerSample")
     public ArrayList<Item> getTimePerSample() {
         return timePerSample;
     }

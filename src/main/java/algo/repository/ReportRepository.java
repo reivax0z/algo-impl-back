@@ -1,13 +1,14 @@
 package algo.repository;
 
-import algo.model.ClientType;
 import algo.model.Report;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ReportRepository extends MongoRepository<Report, String> {
+@EnableScan
+public interface ReportRepository extends CrudRepository<Report, String> {
 
-    List<Report> findByTypeAndSampleSize(ClientType type,
+    List<Report> findByTypeAndSampleSize(String type,
                                          Integer sampleSize);
 }

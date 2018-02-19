@@ -7,40 +7,36 @@
 * Java 8
 * SpringBoot
 * Swagger
-* MongoDB
+* DynamoDB
 * Gradle
 * Groovy + Spock for unit testing
 * Protractor + Mocha for integration testing
 
 ### Pre-requisites
 
-You need to have Java, MongoDB and Gradle already installed.
+You need to have Java, DynamoDB and Gradle already installed.
 
-##### Install MongoDB
+#### Install DynamoDB locally
 
-To install MongoDB, run the following commands:
+[Official AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
 
-```sh
-$ brew install mongodb
+#### Run DynamoDB locally
+
+```
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+```
+
+#### Create table
+
+```
+aws dynamodb create-table --table-name Report --attribute-definitions AttributeName=Id,AttributeType=S --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
 ```
 
 ### Run the app
 
-1) Have MongoDB running in the background:
-
-```sh
-$ mongod --config /usr/local/etc/mongod.conf
-```
-
-Note that you can access the logs by typing: `$ tail -f /usr/local/var/log/mongodb/mongo.log`
-
-2) Then just run the following:
-
  ```sh
 $ gradle bootRun
 ```
-
-3) Access the app:
 
 * The app will then be accessible at:
 

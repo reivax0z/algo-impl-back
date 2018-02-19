@@ -1,6 +1,5 @@
 package algo.controller
 
-import algo.model.ClientType
 import algo.model.Report
 import algo.repository.ReportRepository
 import org.springframework.http.HttpStatus
@@ -32,7 +31,7 @@ class ReportControllerSpec extends Specification {
 
     def "it allows to get a Report by type and size"() {
         given:
-        def type = ClientType.SORT
+        def type = "SORT"
         def size = 1000
         def reports = [new Report(), new Report()]
 

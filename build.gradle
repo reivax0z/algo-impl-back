@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
     }
 }
 
@@ -21,7 +21,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    springVersion = '4.2.2.RELEASE'
+    springVersion = '4.3.6.RELEASE'
     jsonJacksonVersion = '2.6.3'
     swaggerVersion = '2.4.0'
 }
@@ -32,15 +32,12 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web") {
-        exclude module: "spring-boot-starter-tomcat"
-    }
-    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
-    compile("org.springframework.boot:spring-boot-starter-jetty")
-    //compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-parent:1.5.9.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
 
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version:jsonJacksonVersion
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version:jsonJacksonVersion
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.34'
+    compile group: 'com.github.derjust', name: 'spring-data-dynamodb', version: '4.5.0'
 
     compile group: 'io.springfox', name: 'springfox-swagger2', version:swaggerVersion
     compile group: 'io.springfox', name: 'springfox-swagger-ui', version:swaggerVersion
@@ -50,6 +47,13 @@ dependencies {
     testCompile('cglib:cglib-nodep:2.2')
 }
 
-task getHomeDir << {
-    println gradle.gradleHomeDir
+test {
+    testLogging {
+        events "failed"
+    }
+    afterSuite { desc, result ->
+      if (!desc.parent) { // will match the outermost suite
+          println("Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} successes, ${result.failedTestCount} failures, ${result.skippedTestCount} skipped)")
+      }
+    }
 }

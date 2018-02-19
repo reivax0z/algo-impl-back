@@ -3,7 +3,6 @@ package algo.client
 import algo.client.Sorts
 import algo.client.sort.BubbleSort
 import algo.client.sort.ClassicSort
-import algo.model.ClientType
 import spock.lang.Specification
 
 class SortsSpec extends Specification {
@@ -34,6 +33,6 @@ class SortsSpec extends Specification {
         def response = sorts.getType()
 
         then:
-        response == ClientType.SORT
+        response == "SORT"
     }
 }
