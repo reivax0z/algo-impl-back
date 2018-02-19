@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ApiModel
-@DynamoDBTable(tableName = "Report")
+@DynamoDBTable(tableName = "algo-impl-back-Report")
 public class Report {
 
     private String id;

@@ -13,7 +13,7 @@ apply plugin: 'groovy'
 apply plugin: 'spring-boot'
 
 group = 'Algorithm'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.4-SNAPSHOT'
 
 description = """AlgoImpl"""
 

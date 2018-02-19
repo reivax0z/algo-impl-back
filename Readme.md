@@ -29,22 +29,22 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 #### Create table
 
 ```
-aws dynamodb create-table --table-name Report --attribute-definitions AttributeName=Id,AttributeType=S --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
+aws dynamodb create-table --table-name algo-impl-back-Report --attribute-definitions AttributeName=Id,AttributeType=S --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
 ```
 
 ### Run the app
 
  ```sh
-$ gradle bootRun
+$ SPRING_PROFILE=local gradle bootRun
 ```
 
 * The app will then be accessible at:
 
-    _http://localhost:8080/algo-impl_
+    _http://localhost:8080/api_
 
 * Access Swagger UI for API endpoints here:
 
-    _http://localhost:8080/algo-impl/swagger-ui.html_
+    _http://localhost:8080/api/swagger-ui.html_
 
 
 ### Run the unit tests

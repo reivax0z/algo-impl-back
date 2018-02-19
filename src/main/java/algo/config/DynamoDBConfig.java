@@ -9,6 +9,7 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.util.StringUtils;
 
 @Configuration
 @EnableDynamoDBRepositories(basePackages = "algo.repository")
@@ -27,7 +28,10 @@ public class DynamoDBConfig {
 	public AmazonDynamoDB amazonDynamoDB() {
 		AmazonDynamoDB dynamoDB = new AmazonDynamoDBClient(amazonAWSCredentials());
 
-		dynamoDB.setEndpoint(dBEndpoint);
+		if (!StringUtils.isNullOrEmpty(dBEndpoint)) {
+			System.out.println("dBEndpoint=" + dBEndpoint);
+			dynamoDB.setEndpoint(dBEndpoint);
+		}
 
 		return dynamoDB;
 	}
