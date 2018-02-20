@@ -22,20 +22,20 @@ You need to have Java, DynamoDB and Gradle already installed.
 
 #### Run DynamoDB locally
 
-```
+```sh
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 ```
 
 #### Create table
 
-```
+```sh
 aws dynamodb create-table --table-name algo-impl-back-Report --attribute-definitions AttributeName=Id,AttributeType=S --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
 ```
 
 ### Run the app
 
  ```sh
-$ SPRING_PROFILE=local gradle bootRun
+$ SPRING_PROFILES_ACTIVE=local gradle bootRun
 ```
 
 * The app will then be accessible at:

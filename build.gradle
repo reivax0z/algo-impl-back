@@ -1,16 +1,18 @@
 buildscript {
+    ext {
+      springVersion = '1.5.9.RELEASE'
+    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springVersion}")
     }
 }
 
 apply plugin: 'java'
-apply plugin: 'war'
 apply plugin: 'groovy'
-apply plugin: 'spring-boot'
+apply plugin: 'org.springframework.boot'
 
 group = 'Algorithm'
 version = '0.0.4-SNAPSHOT'
@@ -21,7 +23,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 ext {
-    springVersion = '4.3.6.RELEASE'
+    springVersion = '1.5.9.RELEASE'
     jsonJacksonVersion = '2.6.3'
     swaggerVersion = '2.4.0'
 }
@@ -32,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-parent:1.5.9.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-parent:${springVersion}")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
 
