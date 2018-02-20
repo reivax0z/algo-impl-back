@@ -5,3 +5,4 @@ build/
 classes/
 out/
 api-tests/node_modules
+*.iml
